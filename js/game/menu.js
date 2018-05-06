@@ -129,7 +129,7 @@ function Play_2(){
 			p("ほら、やっぱりダウナー系だよお前は。");
 			Play_3();
 		},
-		"「真実についてのゲーム」にしちゃ嘘だらけだな。": function(message){
+		"真実についてのゲームにしちゃ嘘だらけだな?": function(message){
 			$.main_menu_convo_2 = 3;
 
 			p(message);

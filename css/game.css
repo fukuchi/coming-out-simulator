@@ -28,6 +28,7 @@ body{
 	height:560px;
 	overflow: hidden;
 	position: absolute;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 
 /** SOCIAL **/
@@ -317,6 +318,7 @@ body{
 	-o-user-select: none;
 	user-select: none;   
 
+	-webkit-tap-highlight-color:rgba(0,0,0,0.4);
 }
 #game #choices > div[shown=true]{
 	top:0px;
