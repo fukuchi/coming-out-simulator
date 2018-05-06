@@ -106,7 +106,7 @@ function Waiting_2(message){
 
 			Show("mom","mom_stand");
 
-			m("ニック、なにしてるの?...");
+			m("ニック、何してるの?...");
 
 			Show("clock","clock_ticking");
 			PlaySound("clock","dinner_ticking",{loop:-1});

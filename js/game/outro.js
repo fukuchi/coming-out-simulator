@@ -139,7 +139,7 @@ function Closure_Story(){
 function Is_Last_Story(){
 	if($.coming_out_stories_left==0){
 		if($.asked_about && $.asked_credits){
-			p("またかよ、一つしか選択肢がないのにそれをクリックさせ...");
+			p("またかよ、一つしか選択肢が残ってないのにそれをクリックさせやがって...");
 		}else{
 			p("これしか選択肢が残ってないのに、なんでわざわざクリックさせたの?");
 			N("さあてね。続けるよ?");

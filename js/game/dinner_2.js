@@ -44,8 +44,8 @@ function Start_Dinner_2(){
 		},
 		"まず母さんに話したいことがあるんだけど。": function(message){
 			n(message);
-			m("慌てないでニック。今日なにがあったか先に教えてちょうだい。");
-			n("別になにも。");
+			m("慌てないでニック。今日何があったか先に教えてちょうだい。");
+			n("別に何も。");
 			m("そう。じゃあ明日はどうするの?");
 			Start_Dinner_2_1();
 		}
@@ -135,7 +135,7 @@ function Buddy_1(message){
 		n("嘘じゃないよ。");
 	}else{
 		m("そう、やっぱりね。");
-		n("やっぱりって...なにが?");
+		n("やっぱりって...何が?");
 	}
 
 	Buddy_1_point_5();
@@ -241,7 +241,7 @@ function Buddy_4(message){
 			}
 
 		},
-		"自然じゃないって、なにを言いたいの?": Buddy_3
+		"自然じゃないって、何を言いたいの?": Buddy_3
 	});
 }
 
@@ -261,7 +261,7 @@ function Buddy_Choice(){
 			n("...もちろん。");
 			Buddy_Aftermath();
 		},
-		"ゲイだとなにかいけないの?": function(message){
+		"ゲイだと何かいけないの?": function(message){
 			n(message);
 			m("いや、そういう訳じゃないんだけど。");
 			Buddy_Aftermath();
