@@ -10,38 +10,38 @@ function Start_Dinner_5(){
 
 	PlaySound("sfx","dinner_door");
 	
-	f("Hey Qiying! Hey Nick!");
-	f("I'm home!");
+	f("ただいま母さん、ニッキー!");
+	f("帰ったぞ!");
 	
 	Show("dad","dad_serious");
 
-	m("Hi honey.");
-	n("Sup dad, how was your day?");
+	m("お帰りなさい、あなた。");
+	n("よう父さん、今日はどうした?");
 
-	f("Stayed overtime. Hopefully the boss will notice it before my Performance Review.");
-	f("Really, though, I was just playing web games all day. Haha!");
-	n("Ha ha.");
+	f("残業だよ。上司がちゃんと勤務評価につけてくれればいいんだが。");
+	f("本当は Web ゲームで遊んでただけなんだけどな。ハハハッ!");
+	n("あはは。");
 
-	f("Nick, why aren't <i>your</i> web games any fun?");
+	f("ニッキー、お前もちょっとは面白い Web ゲームを作ったらどうなんだ?");
 
 	Choose({
-		"I thought my games were fun...": function(message){
+		"十分面白いと思うけど...": function(message){
 			n(message);
-			f("Well then! You have a sick sense of fun, don't you. Haha!");
+			f("なら、お前のセンスはちょっとおかしいんだな! ハッハッハ!");
 			n(". . .");
 			Casual();
 		},
-		"Not all games have to be fun.": function(message){
+		"面白いばかりがゲームじゃないだろ。": function(message){
 			n(message);
-			f("Oh yes. You're right.");
-			f("BAD games aren't any fun. Haha!");
+			f("おお、そうだ、もちろんその通りだ。");
+			f("出来の悪いゲームは面白くないもんだ。ハッハッハ!");
 			n(". . .");
 			Casual();
 		},
-		"ART!": function(message){
+		"アートだ!": function(message){
 			n(message);
-			f("Pfft. What's the use of art?");
-			f("Next thing you know, you're going to be writing bad amateur poetry, or something.");
+			f("プッ。アートになんの意味がある?");
+			f("次にお前は、素人まるだしのバカバカしい詩かなんかでも書くんだろう。");
 			n(". . .");
 			Casual();
 		}
@@ -51,48 +51,48 @@ function Start_Dinner_5(){
 
 function Casual(){
 	
-	f("Hey Qi, what's that sauce on your plate?");
-	f("Uh...");
+	f("おい母さん、その皿にかかってるのはなんのソースなんだい?");
+	f("その...");
 
 	Show("clock_time","clock_1950");
 
 	Choose({
-		"It's vomit.": function(message){
+		"ゲロだよ。": function(message){
 			
 			n(message);
 
 			$.grounded = 2;
-			f("Nick! One week grounded!");
-			f("Don't insult your mother's cooking like that.");
-			f("Her food insults itself plenty enough. Haha!");
+			f("ニッキー! 一週間の外出禁止だ!");
+			f("母さんの料理をそんな風にけなすもんじゃない。");
+			f("母さんも自分が作った料理を食べているんだ。それ以上責めるなよ。ハッハッハ!");
 
 			Casual_2();
 
 		},
-		"Don't eat it! It's, uh, really not good.": function(message){
+		"食べちゃダメだ! ヤバいって。": function(message){
 			
 			n(message);
 
 			$.grounded = 1;
-			f("Nick! One day grounded!");
-			f("Show some respect. Have more faith in your mother's cooking!");
-			f("Because the way she cooks, we could certainly use a miracle! Haha!");
+			f("ニッキー! 明日は外出禁止だ!");
+			f("お前には敬意が足りない。母さんの料理を少しは敬えよ。");
+			f("いくら見た目がひどくても、意外に食える、って可能性だってなくはないだろ? ハッハッハ!");
 
 			Casual_2();
 
 		},
-		"Why don't you give it a try, dad?": function(message){
+		"味見してみたら?": function(message){
 			
 			n(message);
 
 			$.grounded = 0;
-			m("Nick...");
-			f("Don't mind if I do!");
-			f("[eats a spoonful]");
+			m("ニッキー...");
+			f("どれ、それじゃ遠慮なく。");
+			f("[一匙食べる]");
 			f(". . .");
 			n(". . .");
 			m(". . .");
-			f("Well, you've cooked up worse, hun. Haha!");
+			f("おい、またずいぶんとマズく作ったな。ハッハッハ!");
 
 			Casual_2();
 
@@ -103,26 +103,26 @@ function Casual(){
 
 function Casual_2(){
 	
-	m("Dear...");
-	f("So, son! How's school?");
+	m("あなた...");
+	f("さて息子よ! 学校はどうだ、ん?");
 
 	Choose({
-		"School's fine.": function(message){
+		"うまくやってるよ。": function(message){
 
 			n(message);
 
-			f("Really, fine?");
+			f("ほんとか?");
 			if($.studying_subject!=$.studying_subject_2){
-				f("What about your poor grades in "+$.studying_subject+" and "+$.studying_subject_2+"?");
+				f($.studying_subject+"と"+$.studying_subject_2+"の成績はどうなんだ?");
 			}else{
-				f("What about your poor grades in "+$.studying_subject+"?");
+				f($.studying_subject+"の成績はどうなんだ?");
 			}
 
-			m("Nick and I were just talking about that.");
+			m("ニッキーとちょうどその話をしてたのよ。");
 			Getting_A_Tutor();
 
 		},
-		"I'm studying at a friend's place tomorrow.": function(message){
+		"明日は友達のところで勉強するよ。": function(message){
 			n(message);
 
 			$.tried_talking_about_it = true;
@@ -130,42 +130,42 @@ function Casual_2(){
 			if($.grounded>0){
 
 				if($.grounded==1){
-					f("Don't you remember? I just grounded you for tomorrow.");
+					f("忘れたのか? 明日は外出禁止と言ったはずだぞ。");
 				}
 				if($.grounded==2){
-					f("Don't you remember? I just grounded you for a week.");
+					f("忘れたのか? 一週間の外出禁止と言ったはずだぞ。");
 				}
-				f("You must get your stupid from your mother's side. Haha!");
+				f("間抜けなところは母さんに似たんだな。ハッハッハ!");
 				
-				n("Um. I...");
+				n("でも、僕...");
 
 				$.grounded++;
 				if($.grounded==2){
-					f("I'm bumping it up. You're now grounded for a week.");
+					f("まだ足りないようだな。お前は一週間外出禁止だ。");
 				}
 				if($.grounded==3){
-					f("I'm bumping it up. You're now grounded for TWO weeks.");
+					f("まだ足りないようだな。お前は二週間外出禁止だ。");
 				}
 
 			}
 
-			m("Speaking of studying...");
+			m("勉強のことについて話しましょう...");
 			Getting_A_Tutor();
 
 		},
-		"DAD I'M BISEXUAL AND BANGING JACK.": function(message){
+		"僕はバイでジャックとヤってるんだ。": function(message){
 			$.tried_talking_about_it = true;
 
 			Show("nicky","dinner_nicky_outrage");
-			n("DAD I'M BI--");
+			n("父さん、僕はバイ—");
 			Show("nicky","dinner_nicky_sit");
 
-			m("BICYCLING to school every day starting next week.");
-			f("Oh good!");
-			f("You could certainly lose some weight, or else how will you get a girlfriend?");
-			f("You must get your chubbiness from your mother. Haha!");
-			n("Ha ha.");
-			m("Speaking of school...");
+			m("バイシクルで学校に行くって、来週から。");
+			f("お、いいじゃないか。");
+			f("少しは体重を落とさないと、女の子にモテないだろ?");
+			f("太りやすいのは母さんに似たんだな。ハッハッハッ!");
+			n("ハハハ...");
+			m("その学校のことだけど...");
 			Getting_A_Tutor();
 		}
 
@@ -175,49 +175,49 @@ function Casual_2(){
 
 function Getting_A_Tutor(){
 
-	m("We were discussing probably getting a home tutor.");
-	f("Oh! Is this the Claire kid?");
+	m("家庭教師のことについてニッキーに話してたのよ。");
+	f("ああ! 例のクレアって娘か?");
 
 	// Oh dang!
 	Show("nicky","dinner_nicky_defiant");
 
 	switch($.promise_silence){
 		case "yes":
-			n("Mom, we both promised we wouldn't talk about this...");
+			n("母さん、そのことは話さないって約束だろ...");
 			if($.tried_talking_about_it){
-				m("You <i>just</i> tried talking about it.");
+				m("<strong>あなたが</strong>先に話そうとしたでしょ。");
 			}
 			break;
 		case "no":
-			n("Mom, you said we wouldn't talk about this...");
-			m("You're the one who didn't promise not to talk!");
+			n("母さん、そのことは話さないって...");
+			m("あなたは約束しなかったじゃない。");
 			break;
 		case "tit for tat":
-			n("Mom, you said you wouldn't talk about this if I didn't...");
+			n("母さん、母さんが言わなきゃ僕も話さない、そういう約束だったじゃないか...");
 			if($.tried_talking_about_it){
-				m("You <i>just</i> tried talking about it.");
+				m("<strong>あなたが</strong>言おうとしてたじゃない。");
 			}
 			break;
 	}
 
-	f("Talking about what?...");
-	f("I'm the head of this household. You two better not be hiding secrets from me.");
-	m("Oh... Nick just really, really likes Claire.");
+	f("なんのことだ?...");
+	f("俺はこの家の主人だ。二人とも、俺に隠しごとをするのは許さんぞ。");
+	m("あの...ニッキーは、クレアのことを好きみたいなのよ。本当よ。");
 
 	Choose({
-		"What?! No I don't!": function(message){
+		"はぁ? んなワケないだろ!": function(message){
 			n(message);
-			f("Don't be so shy about it.");
+			f("あら、そんな照れなくても。");
 			Getting_A_Tutor_2();
 		},
-		"Fine. You got me. I have a crush on Claire.": function(message){
+		"くそ、わかったよ。そういうことさ。": function(message){
 			n(message);
 			Getting_A_Tutor_2();
 		},
-		"I have a boyfriend.": function(message){
+		"僕には彼氏がいるんだ。": function(message){
 			n(message);
-			f("Yes son! You're going to be a boyfriend!");
-			n("<i>Have</i>. I <i>have</i> a--");
+			f("そうか、我が息子よ! お前もいよいよ「彼氏」になるんだな!");
+			n("僕に彼氏<strong>が</strong>いるんだって。<strong>僕に</strong>—");
 			Getting_A_Tutor_2();
 		}
 	});
@@ -226,102 +226,102 @@ function Getting_A_Tutor(){
 
 function Getting_A_Tutor_2(){
 	
-	f("You're becoming a man, son!");
-	f("If I were your age, I ditch your mother and chase Claire, too! Haha!");
+	f("お前も男になるときが来たな、息子よ!");
+	f("俺もお前の歳だったら、母さんなんか放り投げてクレアの方を取るな。ハッハッ!");
 
-	n("That's totes weird, dude.");
-	f("Talking back? Careful, I'll box your ears, boy!");
+	n("うわ、むっちゃキモ。");
+	f("口の利き方に気をつけろよ? 張っ倒すぞこのガキが!");
 
 	if($.changing_schools){
-		m("We were also thinking about changing schools for Nick.");
-		m("Maybe to Claire's school.");
+		m("ニッキーと、転校しましょうって話もしてたのよ。");
+		m("クレアの通う学校へよ。");
 	}
 	if($.studying_subject!=$.studying_subject_2){
-		m("Claire will be tutoring Nick every day after school in "+$.studying_subject+" and "+$.studying_subject_2+".");
+		m("それにクレアは毎日、学校の後で"+$.studying_subject+"と"+$.studying_subject_2+"を教えてくれることになってるのよ。");
 	}else{
-		m("Claire will be tutoring Nick every day after school in "+$.studying_subject+".");
+		m("それにクレアは毎日、学校の後で"+$.studying_subject+"を教えてくれることになってるのよ。");
 	}
 
-	f("Nick, how does all this sound? Yes or no?");
-	m("He loves the ide--");
-	f("Shut up, Qi. I asked my son.");
+	f("ニッキー、お前はどうなんだ。イエスかノーか?");
+	m("ニッキーはもちろん—");
+	f("母さんは黙ってろ。俺は息子に聞いてるんだ。");
 	m(". . .");
 
 	Show("dad","dad_threat");
 
-	f("Mister Nicklaus Liow.");
+	f("さて、ニコラス・リオウよ。");
 	if($.changing_schools){
-		f("You want to change schools to chase your hot tutor girlfriend?");
+		f("お前は家庭教師の娘の尻を追って転校したいのかね?");
 	}else{
-		f("You want to spend all your after-school hours with your hot tutor girlfriend?");
+		f("お前は学校の後で家庭教師の娘とお熱い時間を過ごしたいかね?");
 	}
 
-	n("It's complicated, I--");
-	f("No pansy middle-of-the-road answers.");
-	f("Yes. Or. No.");
+	n("そんな簡単な話じゃないんだよ。僕は—");
+	f("あいまいな答で誤魔化すのは無しだぞ。");
+	f("イエスか、ノーか。");
 
 	n(". . .");
 
 	Choose({
-		"Yes.": Agree_With_Dad,
-		"No.": Argue_With_Dad
+		"イエス。": Agree_With_Dad,
+		"ノー。": Argue_With_Dad
 	});
 
 }
 
 function Agree_With_Dad(){
 	
-	n("...Yes.");
+	n("...イエス。");
 
-	f("Hm.");
-	f("You two seem to have made this big life decision very eagerly!");
-	f("So eagerly, in fact, you made it in less than an hour, and tried to hide it from me. What a sudden change.");
+	f("ふむ。");
+	f("お前達、人生の大きな決断をずいぶんと躍起になってするんだな。");
+	f("そんなに焦って、一時間も経たずに決めて、しかも俺に黙って、だ。なにをそんなに急いでるんだ。");
 	m(". . .");
 	n(". . .");
 
-	f("Nick, you did something naughty, didn't you?");
-	f("What did you do.");
+	f("ニッキー、お前、なにかやらかしたな?");
+	f("いったい何をやったんだ。");
 
 	Choose({
-		"I failed my midterms.": function(message){
+		"中間試験を落としたんだよ。": function(message){
 			
 			n(message);
 
-			f("...Oh.");
-			f("Yeah, you need to get your grades back up.");
+			f("...へぇ.");
+			f("そうか、そしたら取り戻さないとな。");
 
 			Show("dad","dad_serious");
 
-			f("Or you'll be stuck in a teaching job like your mother! Haha!");
+			f("それか母さんみたいに教師にでもなるしかないな、ハハハ!");
 			n(". . .");
 			Agreeable_Ending();
 
 		},
-		"I had sex with Jack.": function(message){
+		"ジャックとセックスしたんだ。": function(message){
 			
 			n(message);
 			
 			Show("mom","mom_cry");
-			m("[sob]");
+			m("[泣く]");
 			f(". . .");
 			Argument_Ending();
 
 		},
-		"I had sex with Claire.": function(message){
+		"クレアとセックスしたんだ。": function(message){
 			
 			n(message);
 			
-			m("...Nick!");
+			m("...ニッキー!");
 			f(". . .");
-			f("   Nnnnnniiiiiiiiice.");
-			m("...Dear!");
-			f("Wait, uh, you didn't get her pregnant, did you?");
-			n("No. I'm not stupid.");
+			f("やったな!!!");
+			m("...あなた!");
+			f("ちょっと待て、おい、まさか妊娠させたんじゃないだろうな?");
+			n("いいや、そこまで馬鹿じゃないよ。");
 			
 			Show("dad","dad_serious");
 
-			f("Good. Otherwise you'd be stuck for the next two decades raising a kid, like me! Haha!");
-			n("Ha ha.");
+			f("ならいい。下手すりゃ向こう二十年は子供の世話しないといけないところだ。俺みたいにな! ハッハッハ!");
+			n("ハハ...");
 			Agreeable_Ending();
 
 		}
@@ -333,44 +333,44 @@ function Agreeable_Ending(){
 
 	$.father_oblivious = true;
 
-	f("For a moment there, Nick, I thought you'd been smoking pot with your hippie classmate Jack, or something!");
+	f("そういやニッキー。お前、ジャックとかいうヒッピーの友達と、クサかなんか吸っただろう!");
 
 	Show("nicky","dinner_nicky_sit");
 	n(". . .");
-	f("So!");
-	f("Who wants to watch a movie this weekend? I hear Inception is good.");
+	f("さて!");
+	f("今週末は映画に行かないか? 「インセプション」ってのがいいらしいぞ。");
 
 	Choose({	
-		"Let's watch it! I haven't seen it yet.": function(message){
+		"いいね! 観たかったんだよ。": function(message){
 			n(message);
-			f("Then it's a plan!");
-			f("Hey Nick, you know who's acting in the movie?");
-			n("Um. Leonardo DiCaprio?");
-			f("No no, Ellen Page.");
-			f("Doesn't Claire look a little bit like her?");
-			n("I guess.");
+			f("なら計画を立てろ!");
+			f("おいニッキー、その映画に誰が出てるか知ってるか?");
+			n("ええと、レオナルド・ディカプリオ?");
+			f("違う違う、エレン・ペイジのことさ。");
+			f("クレアはちょっと彼女に似てるだろ?");
+			n("かもね。");
 			Dinner_Ending();
 		},
-		"Uh... let's do a different movie...": function(message){
+		"ええと...違う映画にしようよ...": function(message){
 			n(message);
-			f("What, Inception too complicated for you?");
-			n("Hey...");
+			f("ん? インセプションはお前にゃちょっと難しいか?");
+			n("そんな...");
 			if($.studying_subject!=$.studying_subject_2){
-				f("Sure, I understand if you failed "+$.studying_subject+" and "+$.studying_subject_2+"...");
+				f("そりゃな、なんせ"+$.studying_subject+"と"+$.studying_subject_2+"を落とすくらいだもんな...");
 			}else{
-				f("Sure, I understand if you failed "+$.studying_subject+"...");
+				f("そりゃな、なんせ"+$.studying_subject+"を落とすくらいだもんな...");
 			}
-			f("But come on, this is a <i>movie</i>!");
-			f("You can't have inherited that much stupid from your mother's side! Haha!");
-			n("Ha ha.");
+			f("だけどな、ただの<strong>映画だぞ</strong>!");
+			f("そこまで母さんの馬鹿を受け継いでる訳じゃあるまい? ハッハッ!");
+			n("ハハハ...");
 			Dinner_Ending();
 		},
-		"Oh, I already saw Inception.": function(message){
+		"インセプションはもう観たよ。": function(message){
 			n(message);
-			f("Oh ho, I see...");
-			f("You went on a little movie date with your special friend Claire, didn't you?");
-			n("Yeah.");
-			n("A date with my special friend.");
+			f("おお、そうか...");
+			f("特別なお友達のクレアちゃんとデートで観てきましたってか?");
+			n("うん。");
+			n("特別な友達とのデートさ。");
 			Dinner_Ending();
 		}
 	});
@@ -379,51 +379,51 @@ function Agreeable_Ending(){
 
 function Argue_With_Dad(){
 
-	n("...No.");
+	n("...ノー。");
 
-	f("Excuse me?");
-	n("No. Mom's doing this so I can't see Jack anymore.");
-	f("Jack.");
-	n("My friend.");
+	f("なんだって?");
+	n("違うんだ。母さんは僕を転校させて、ジャックにもう会わせないつもりなんだ。");
+	f("ジャック?");
+	n("僕の友達だよ。");
 
 	Choose({
-		"My boyfriend.": function(message){
+		"ボーイフレンドなんだ。": function(message){
 			
 			n(message);
 
 			Show("mom","mom_cry");
-			m("[sob]");
+			m("[泣く]");
 
-			m("Jack did this to our son!");
-			f("That kid chose his lifestyle, but I will not have it be yours, Nick.");
+			m("ジャックが息子をたぶらかしたのよ!");
+			f("そのガキが選んだ人生だ、どうでもいい。だがニッキー、お前にその自由はないぞ。");
 			Argument_Ending();
 		},
-		"Mom hates him, coz he happens to be gay.": function(message){
+		"母さんは奴がゲイだから嫌いなんだ。": function(message){
 
-			n(message);
+			n("母さんは奴がただゲイだってだけで嫌ってるんだ。");
 
 			Show("mom","mom_cry");
-			m("[sob]");
+			m("[泣く]");
 
-			f("You made your mother cry.");
+			f("お前、母さんを泣かしたな。");
 			if($.hippies){
-				m("And his parents are drug addicts!");
+				m("それにあの人の親は麻薬中毒なのよ!");
 			}
-			f("Jack chose that lifestyle, but I will not have it be yours, Nick.");
+			f("ジャックが選んだ人生だ、どうでもいい。だがニッキー、お前にその自由はないぞ。");
 			Argument_Ending();
 		},
-		"Mom hates him, coz she THINKS he's gay.": function(message){
+		"母さんは奴がゲイだと思ってるんだ。": function(message){
 
-			n(message);
+			n("母さんは奴をゲイだと思いこんでいて、だから奴を嫌ってるんだ。");
 
 			Show("mom","mom_cry");
-			m("[sob]");
+			m("[泣く]");
 
-			m("Jack IS gay!");
+			m("間違いなくゲイよ!");
 			if($.hippies){
-				m("And his parents are drug addicts!");
+				m("それにあの人の親は麻薬中毒なのよ!");
 			}
-			f("Jack chose that lifestyle, but I will not have it be yours, Nick.");
+			f("ジャックが選んだ人生だ、どうでもいい。だがニッキー、お前にその自由はないぞ。");
 			Argument_Ending();
 		}
 	});
@@ -437,96 +437,96 @@ function Argument_Ending(){
 	n(". . .");
 
 	if($.top_or_bottom=="top"){
-		m("Jack acts like the woman, not him...");
+		m("ジャックの方が女役なのよ、ニッキーじゃなくて...");
 	}
 	switch($.what_are_you){
 		case "bisexual":
-			m("Nick's not fully gay, he told me himself he's still attracted to girls!");
+			m("ニッキーは完全にゲイじゃないのよ、女の子にもまだ興味があるってさっき言ったわよね?!");
 			n(". . .");
 			break;
 		case "confused":
-			m("Earlier Nick told me he was just confused!");
-			f("Oh, clearly he is.");
+			m("ニッキーはさっき、まだよくわからないって言ってたわ!");
+			f("ふん、明らかにそのようだな。");
 			n(". . .");
 			break;
 		case "son":
-			n("Look, like I told Mom just now, I'm your SON, isn't that enou--");
+			n("待てよ、さっきも母さんに言ったけど、僕はあんたらの息子だ。それで十分—");
 			break;
 	}
 	
-	f("Nick, you're changing schools.");
+	f("ニッキー、お前は転校するんだ。");
 	n(". . .");
-	m("huuu... huuu... huuu...");
+	m("うう... うう... うう...");
 
-	f("Your mother and I will do random checks on your texts and emails.");
+	f("母さんと俺とで、お前のメールやらなんやら、抜き打ちで検査することにする。");
 	n(". . .");
-	m("owww... owww...");
+	m("うっ... うっ...");
 
-	f("I swear, if I have to pay Claire extra to make you realize you're straight, I will.");
+	f("いいか、クレアに余分に金を払ってでも、お前をストレートに戻させてやる。絶対に、だ。");
 	n(". . .");
 
 	Show("mom","mom_sit");
 	if($.crying=="anger"){
-		m("When I was crying earlier, he accused it of being fake!");
-		f("Qi, shut up. We're not talking about you.");
+		m("さっき私のこと、嘘泣きしてるって言ったのよ!");
+		f("お前のことはどうでもいい、黙ってろ。");
 	}
 	if($.crying=="mocking"){
-		m("When I was crying earlier, he was mocking it!");
-		f("Qi, shut up. We're not talking about you.");
+		m("私がさっき泣いてるとき、からかったのよ、私のことを!");
+		f("お前のことはどうでもいい、黙ってろ。");
 	}
 
-	f("So Nick.");
-	f("Would you like to say anything, anything at all, about all that?");
+	f("それでだ、ニッキー。");
+	f("なにか言いたいことはあるか? もうおしまいか? どうだ?");
 
 	Choose({
-		"Yes. Fuck this, and fuck you.": function(message){
+		"ああ。クソッタレだ、糞野郎。": function(message){
 
-			n("Yes.");
-			n("FUCK this.");
-			n("And FUCK you.");
+			n("ああ。");
+			n("クソッタレだ。全部。");
+			n("この糞野郎。");
 			
 			Show("nicky","dinner_nicky_outrage");
-			n("Fuck BOTH of you, you narcissistic slimy pieces of SHI--");
+			n("二人とも糞だ、自分のことばかりで、ただのクソ—");
 			
 			Dinner_Ending_Punch();
 
 		},
-		"No. I accept my punishment.": function(message){
+		"いや。罰を受け入れるよ。": function(message){
 
 			n(message);
-			f("Good. At least you're taking this like a man.");
+			f("よし。ちょっとは男らしいところを見せたな。");
 			n(". . .");
 
 			Show("dad","dad_serious");
 
-			m("sniff...");
-			f("I'm going out to the bar, and getting something actually edible to eat.");
+			m("グスッ...");
+			f("ちょっとバーにでも行って、ちっとはマシなものを食ってくる。");
 
 			Show("dad",null);
 
-			f("Honey sweetie dear? Your cooking is shit.");
+			f("我が愛しの女房よ、お前の料理はクソだ。");
 			PlaySound("sfx","dinner_door");
 
 			m(". . .");
 			
 			Show("mom","mom_cry");
 
-			m("BAWWWWW");
+			m("うぎゃあああー!");
 			
 			Dinner_Ending();
 
 		},
-		"You can't hurt me.": function(message){
+		"僕を傷つけることはできないよ。": function(message){
 
 			n(message);
 			f(". . .");
-			m("Dear, no...");
-			f("Mighty strong words, son.");
-			m("Honey, please don't!");
-			f("At least you're standing up to me. Like a man.");
-			m("Please! It's my fault! Don't--");
-			f("Ice keeps the swelling down.");
-			m("DEAR!");
+			m("あなた、やめて...");
+			f("強く出たな、息子よ。");
+			m("あなた、本当にやめて!");
+			f("逃げ出すかと思ったが、まだ男らしいところも残ってるじゃないか。");
+			m("やめて! 私のせいなのよ! 本当に—");
+			f("後で腫れたところを冷やしとけよ。");
+			m("あなた!");
 			
 			Dinner_Ending_Punch();
 

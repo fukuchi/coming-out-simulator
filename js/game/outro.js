@@ -19,37 +19,37 @@ function Start_Outro(){
 	///////////////////////////////
 
 	if($.breaking_up_soon){
-		N("And then we broke up three days later.");
+		N("そして僕らは三日後に別れた。");
 	}else{
-		N("And then we broke up three weeks later.");
+		N("そして僕らは三週間後に別れた。");
 	}
 
 	// Weave - intro
 	if($.main_menu_convo_1==1){
 		p(". . .");
-		N("Told you this didn't end in gay unicorns.");
+		N("言ったろ。この話はゲイのユニコーンで終わしはしないって。");
 	}else if($.main_menu_convo_1==3){
 		p(". . .");
-		N("Told you. Not blood, but tears.");
+		N("言ったろ。流血沙汰では終わりはしないって。涙も流れたし。");
 	}else if($.main_menu_convo_2==1){
 		p(". . .");
-		N("You were right. I'm a bit of a downer.");
+		N("君の言った通り、僕はダウナー系だったね。");
 	}
 
 	Choose({
-		"MY FEELS.":function(message){
+		"胸が痛むよ。":function(message){
 			p(message);
-			N("Let the feels flow, my friend.");
+			N("痛みもじきに引くさ。だろ?");
 			Closure();
 		},
-		"Aw, come on, that's cold dude.":function(message){
+		"おいやめろよ、根に持つ奴だな。":function(message){
 			p(message);
-			N("I don't deny that.");
+			N("否定はしないよ。");
 			Closure();
 		},
-		"Can't say I didn't see that coming...":function(message){
+		"なんとなくそうじゃないかと思ってたよ...":function(message){
 			p(message);
-			N("Yeah... Jack and I saw it coming, too.");
+			N("そうだね... ジャックと僕も、そう思ってたよ。");
 			Closure();
 		}
 	});
@@ -62,50 +62,50 @@ function Closure(){
 	Show("nicky","coffee_nicky_drink");
 	Show("cup",null);
 
-	p("Ugh.");
-	p("I feel gross just using the same-coloured dialogue balloons as the Father character.");
+	p("げっ。");
+	p("この吹き出しの色、君の親父さんのと同じ色じゃないか。嫌な気分だなこれ。");
 
 	Show("nicky","coffee_nicky_still");
 	Show("cup","cup_steam");
 
-	N("Which reminds me. Many of the characters have been swapped around.");
-	N("All names have been changed, except mine.");
-	N("I left my little brother out entirely, because he's innocent.");
-	N("And I put my Father back in, even though he'd left the family long before 2010.");
+	N("前にも言ったけど、ゲーム中のキャラクターは色々と変えてあるからね。");
+	N("名前もぜんぶ変えてある。僕の以外は。");
+	N("僕の弟も出てこない。無関係だからね。");
+	N("あと、父親をゲーム中に引っ張り出してるけど、本当は2010年より前に家を出てるんだ。");
 
 	if($.main_menu_convo_2==3){
-		N("Like you said, this 'true' game is full of lies.");
+		N("君が言ったように、この「真実についてのゲーム」は、嘘だらけなんだよ。");
 	}
 	
-	p("You could have at least given me a different colour.");
-	N("It's been five years since that night...");
-	N("What do you think happened afterwards?");
+	p("せめて、違う色にしてくれたって良かったんじゃないか?");
+	N("あの夜から四年が経った...");
+	N("その間に何が起きたと思う?");
 
 	if($.main_menu_convo_2==2){
-		N("Don't worry. Like we said in the Main Menu, there are no right answers.");
+		N("大丈夫。最初に言ったように、正解なんてないんだから。");
 	}
 
 	$.coming_out_stories_left = 3;
 	$.order_of_stories = [];
 
 	Choose({
-		"Dude, I dunno, just freaking tell me.": function(message){
+		"知るか。さっさと教えろよ。": function(message){
 			p(message);
-			N("Alright, I will tell you what happened.");
-			N("...and what happened, and what happened.");
-			p("What.");
+			N("いいよ、では何が起きたか教えてあげよう。");
+			N("...そして何が起きて、それから何が起きたか。");
+			p("なんだそりゃ。");
 			Closure_Story();
 		},
-		"Let me guess, It Gets Better&trade;?": function(message){
-			p(message);
-			N("Yes, actually! In all three versions of what happened.");
-			p("What.");
+		"ああ、「きっとよくなる (It Gets Better&trade;)」?": function(message){
+			p("あ、わかった。「きっとよくなる (It Gets Better&trade;)」キャンペーンみたいな話?");
+			N("その通り! これから「何が起きたか」をバージョン違いで三つ話すけど、そのどれもがそれだ。");
+			p("なんだそりゃ。");
 			Closure_Story();
 		},
-		"Flowers and rainbows and gay unicorns?": function(message){
+		"お花と虹とユニコーン?": function(message){
 			p(message);
-			N("Yes, actually! At least, in one of my three versions of what happened.");
-			p("Of course.");
+			N("その通り! これから三つのバージョンの「何が起きたか」を話すけど、少くともその一つはそうだ。");
+			p("だろうね。");
 			Closure_Story();
 		}
 	});
@@ -115,12 +115,12 @@ function Closure(){
 function Closure_Story(){
 
 	if($.coming_out_stories_left==3){
-		N("Which post-coming-out story do you want to hear first?");
-		N("Don't worry, you'll get to hear all three of them.");
+		N("カミングアウト後の物語、最初にどれから聞きたい?");
+		N("大丈夫。最終的には三つとも聞くことはできるから。");
 	}else if($.coming_out_stories_left==2){
-		N("Now, which version do you want to hear next?");
+		N("じゃ、次にどのバージョンを聞きたい?");
 	}else if($.coming_out_stories_left==1){
-		N("Finally, let's hear the last story...");
+		N("それでは最後の物語を話すよ...");
 	}else{
 		Finale_1();
 		return;
@@ -129,9 +129,9 @@ function Closure_Story(){
 	$.coming_out_stories_left -= 1;
 
 	var options = [];
-	if(!$.told_story_lie) options["The Lie."]=Tell_Me_A_Lie;
-	if(!$.told_story_truth) options["The Truth."]=Tell_Me_A_Truth;
-	if(!$.told_story_half_truth) options["The Half-Truth."]=Tell_Me_A_Half_Truth; 
+	if(!$.told_story_lie) options["「嘘」"]=Tell_Me_A_Lie;
+	if(!$.told_story_truth) options["「真実」"]=Tell_Me_A_Truth;
+	if(!$.told_story_half_truth) options["「半分の真実」"]=Tell_Me_A_Half_Truth; 
 	Choose(options);
 
 }
@@ -139,10 +139,10 @@ function Closure_Story(){
 function Is_Last_Story(){
 	if($.coming_out_stories_left==0){
 		if($.asked_about && $.asked_credits){
-			p("Again, with the making the only option a clickable option...");
+			p("またかよ、一つしか選択肢がないのにそれをクリックさせ...");
 		}else{
-			p("Why did you make that a clickable option, when it was the only option left.");
-			N("No idea. Moving on.");
+			p("これしか選択肢が残ってないのに、なんでわざわざクリックさせたの?");
+			N("さあてね。続けるよ?");
 		}
 	}
 }
@@ -161,67 +161,67 @@ function Tell_Me_A_Lie(message){
 	Show("nicky","coffee_nicky_still");
 	Show("cup","cup_steam");
 
-	N("Very well.");
+	N("いいだろう。");
 	Is_Last_Story();
 
-	N("I ran away from home, with nothing more than a luggage bag full of edible underwear.");
+	N("僕は家を飛び出した。カバンいっぱいに食べられるセクシー下着だけ詰め込んでね。");
 	if($.im_a_poet){
-		N("I roamed the Great White North. Supporting myself by writing amateur poetry for strangers.");
+		N("カナダ中をあてどもなくさまよった。放浪者向けのアマチュア詩を書いて食いつなぎながら。");
 	}else{
-		N("I roamed the Great White North. Supporting myself by making not-fun web games.");
+		N("カナダ中をあてどもなくさまよった。たいして面白くもないWebゲームを作って食いつなぎながら。");
 	}
-	N("I ate flowers. Followed the rainbows. And befriended a homosexual unicorn.");
+	N("花を食べた。虹を追いかけた。ホモのユニコーンと友達になった。");
 	p(". . .");
-	N("Eventually I made it to Alaska, where I met an adult bisexual couple named Bonnie & Clyde.");
-	N("Bonnie was a mid-30s cougar, and Clyde was an early-40s manther.");
+	N("最後にアラスカで、ボニーとクライドって名前のバイのカップルに出会ったんだ。");
+	N("ボニーは30半ばの肉食系女で、クライドは40ちょいのエロおやじ。どっちも若いペットを探してたのさ。");
 
 	// FAMILY WITH BENEFITS
 	// Weave in -- top or bottom
 
 	Choose({
-		"I guess edible undies are both food & clothing.": function(message){
+		"君の下着は衣食両用だったんだね。": function(message){
 			$.outro_convo_lie = 1;
 			p(message);
-			N("And thanks to my flexibility, the luggage bag doubles as housing!");
+			N("発想が柔軟だろ。カバンのスペースを倍に使えるんだ。");
 			Tell_Me_A_Lie_2();
 		},
-		"This story is a fractal of fracked up.": function(message){
+		"この話はフラクタルで不埒だな。": function(message){
 			$.outro_convo_lie = 2;
 			p(message);
-			N("MY STORY. MY RULES.");
+			N("僕が語ってるんだ。僕がルールさ。");
 			Tell_Me_A_Lie_2();
 		},
-		"...\"manther\".": function(message){
+		"...「エロおやじ」ね。": function(message){
 			$.outro_convo_lie = 3;
 			p(message);
-			N("Also known as a faguar.");
+			N("正確には「ホモエロおやじ」だな。");
 			Tell_Me_A_Lie_2();
 		}
 	});
 }
 function Tell_Me_A_Lie_2(){
 	
-	N("They took me in as their foster child, and I was their full-time boytoy.");
+	N("彼らは僕を養子に迎えて、フルタイムのお稚児さんにしたって訳さ。");
 
 	if($.outro_convo_lie==1){
-		p("...Thanks again to your, uh, flexibility.");
+		p("...なるほど。そこでも君の、その、柔軟性が役立ったんだな。");
 	}
 
 	switch($.top_or_bottom){
-		case "top": N("As we know, I like having my partners be 'the woman' of a relationship."); break;
-		case "bottom": N("As we know, I'm usually 'the woman' of a relationship."); break;
-		case "versatile": N("As we know, I like taking turns at being 'the woman' of a relationship."); break;
+		case "top": N("わかるだろ、僕は彼らを「女」にして、楽しませてもらったよ。"); break;
+		case "bottom": N("わかるだろ。僕はもっぱら「女」役を楽しんだ。"); break;
+		case "versatile": N("わかるだろ、僕らは交わりばんこで「女」役になって楽しんでたんだ。"); break;
 	}
 
-	N("They raised me, showed me love, and I grew up to be a productive member of society.");
+	N("彼らは僕を愛情こめて育ててくれて、そうして僕は大人になった。");
 
 	switch($.outro_convo_lie){
-		case 2: p("And when you zoom in on this fractal, there's MORE fracked-up-ness."); break;
-		case 3: p("...\"MANTHER\"."); break;
+		case 2: p("フラクタルよろしく、話の細部を掘り起こしていくとさらに不埒な話が出てくるんだろうな。"); break;
+		case 3: p("...「エロおやじ」。"); break;
 	}
 
-	N("They were my new family.");
-	N("Family... with benefits.");
+	N("彼らは僕の新しい家族だった。");
+	N("家族... セフレならぬ「セファミ」ってところだけど。");
 
 	p(". . .");
 
@@ -245,43 +245,43 @@ function Tell_Me_A_Truth(message){
 	Show("nicky","coffee_nicky_still");
 	Show("cup","cup_steam");
 
-	N("Here it goes.");
+	N("それじゃあ始めようか。");
 	Is_Last_Story();
 
-	N("I took Jack's advice and parodied Inception in my 'odd web game', Reimagine :The Game:.");
+	N("僕はジャックのアドバイスに従って、インセプションをパロった「変な Web ゲーム」を作った。\"Reimagine :The Game:\"ってのがそれだ。");
 	switch($.inception_answer){
-		case "awake": N("Didn't say that Cobbs was awake in the ending, though."); break;
-		case "dream": N("Didn't say that the movie was all just a dream, though."); break;
-		case "neither": N("Still think it doesn't matter if Cobbs was still dreaming."); break;
+		case "awake": N("コブは最後に現実世界に戻れたって言わなかったっけ。"); break;
+		case "dream": N("結局のところ、あの映画はぜんぶがただの夢だ、って言わなかったっけ。"); break;
+		case "neither": N("コブにとってあれが夢なのか現実なのかは、今でもやっぱりどうでもいいって思うよ。"); break;
 	}
-	N("Reimagine :The Game: got internet-famous-ish! A good portfolio piece.");
-	N("A few months later, I landed an internship at Electronic Arts in the Bay Area. Far away from my family in Canada.");
+	N("\"Reimagine :The Game:\" はネットで悪名を轟かせたね! 僕のポートフォリオのいいネタになったよ。");
+	N("数ヶ月後、ベイエリアでエレクトロニック・アーツ(EA)でのインターンシップに受かることができた。カナダの家族からは遠く離れてね。");
 
 	Choose({
-		"Eww, Electronic Arts...?": function(message){
+		"うへっ、エレクトロニック・アーツ...?": function(message){
 			$.outro_convo_truth = 3;
 			p(message);
 
-			N("Yeah, I know, I know.");
-			N("I'm now repenting for my sins by making artsy-fartsy indie games like this one.");
-			p("Repent harder, dammit.");
+			N("はいはい、わかってる、わかってるって。");
+			N("あんなアート臭い系クソインディーゲームを作ってしまった罪深さは十分自覚しているよ。");
+			p("しっかり悔い改めろよ、クソ。");
 			Tell_Me_A_Truth_2();
 		},
-		"And the Bay Area is very LGBT friendly.": function(message){
+		"それにベイエリアならLGBTにもっと優しいしな。": function(message){
 			$.outro_convo_truth = 2;
 			p(message);
 
-			N("That's why they call it the Gay Area!");
-			p("Uh.. nobody calls it that.");
+			N("だからみんな「ゲイエリア」って呼んでるんだ。");
+			p("えーと... 誰もそんな風に呼んでないだろ。");
 			Tell_Me_A_Truth_2();
 		},
-		"Oh, I love EA! They make The Sims, right?": function(message){
+		"EA! いいね。「シムズ」作ったところだろ?": function(message){
 			$.outro_convo_truth = 1;
 			p(message);
 
-			N("Yup! I didn't work on those, though. Our team was making a web game version of--");
-			N("[LITERALLY CANNOT DISCLOSE]");
-			p("Oh.");
+			N("その通り! でも僕はそれには関わってなくて、僕がいたチームは Web 版の—");
+			N("[禁則事項]");
+			p("えっ...");
 			Tell_Me_A_Truth_2();
 		}
 	});
@@ -289,17 +289,17 @@ function Tell_Me_A_Truth(message){
 }
 function Tell_Me_A_Truth_2(){
 	
-	N("After EA, I went on to go indie.");
-	N("But I stayed in touch with friends at EA, and stayed in the Bay Area.");
+	N("EA の後、僕はインディーにまた戻った。");
+	N("でも EA で知り合った友達とは連絡を取り続けてて、ベイエリアにとどまっていた。");
 
-	N("My technical skills grew.");
-	N("My social skills grew.");
-	N("And here... I'm finally starting to figure out my identity.");
+	N("僕の技術は向上した。");
+	N("社会的にも成長した。");
+	N("そして... こんな感じで僕自身のアイデンティティも形作り始めた。");
 
 	switch($.outro_convo_truth){
-		case 1: p("Well, I'm looking forward to Literally Cannot Disclose: The Game."); break;
-		case 2: p("But seriously, no one calls it the Gay Area."); break;
-		case 3: p("But seriously, ew. Electronic Arts."); break;
+		case 1: p("なるほどね。僕は「禁則事項」ゲームの方も気になるけどね。"); break;
+		case 2: p("でも真面目な話、誰も「ゲイエリア」なんて言わない。"); break;
+		case 3: p("でも真面目な話、エレクトロニック・アーツ。うげぇ。"); break;
 	}
 
 	Closure_Story();
@@ -321,40 +321,40 @@ function Tell_Me_A_Half_Truth(message){
 	Show("nicky","coffee_nicky_still");
 	Show("cup","cup_steam");
 
-	N("As you wish.");
+	N("仰せの通りに。");
 	Is_Last_Story();
 
-	N("Claire, in an ironic twist of fate, was also bisexual.");
-	N("We told each other about it during a "+$.studying_subject+" study session.");
+	N("クレアは、運命というのは皮肉なもので、やっぱりバイセクシャルだったんだ。");
+	N("僕らは"+$.studying_subject+"の勉強の合間に、お互いの境遇について語り合った。");
 
-	p("What a twist!");
+	p("そりゃ皮肉が効いてるね!");
 
-	N("Claire was insecure about her sexual orientation, like me.");
-	N("We were both somewhat inexperienced. Claire's only been with women, and I've only been with Jack.");
+	N("クレアも自分の性的指向については自分でもよくわかってなくてね、僕のように。");
+	N("僕らはそんなに経験を積んでなかった。クレアは女としか付き合ったことがなかったし、僕はジャックだけだ。");
 
 	// CLAIRE AND I HELPED EACH OTHER EXPLORE OURSELVES, LESS GUILT, MORE EXPERIENCE.
 	// Weave in -- studying what
 
 	Choose({
-		"A mirror version of you, but reversed...": function(message){
+		"君とそっくりだな、逆だけど...": function(message){
 			$.outro_convo_half_truth = 1;
 			p(message);
-			N("Well, uh, all mirror images are reversed.");
-			p("You know what I mean.");
-			N("But yeah, Claire and I shared our experiences with one another.");
+			N("うーん、逆だったらそっくりにはならないんじゃない?");
+			p("俺の言ってる意味はわかってるだろ。");
+			N("ともかく、クレアと僕はそれぞれの経験について教え合った。");
 			Tell_Me_A_Half_Truth_2();
 		},
-		"So, you taught each other the other side?": function(message){
+		"お互いに相手の世界を教え合った?": function(message){
 			$.outro_convo_half_truth = 3;
 			p(message);
 			Tell_Me_A_Half_Truth_2();
 		},
-		"Did you end up having sexytimes together?": function(message){
+		"最後にはセクシーな仲になったってか?": function(message){
 			$.outro_convo_half_truth = 2;
 			p(message);
-			N("No. She's like a sister to me. A sister I would not have sex with.");
-			p("You... did not need to clarify that.");
-			N("But yeah, Claire and I shared our experiences with one another.");
+			N("いや。彼女は妹みたいなもんだった。セックスの相手としてみなさない方の妹ね。");
+			p("お前さぁ... それわざわざ断わらなくてよくない?");
+			N("ともかく、クレアと僕はそれぞれの経験について教え合った。");
 			Tell_Me_A_Half_Truth_2();
 		}
 	});
@@ -362,21 +362,21 @@ function Tell_Me_A_Half_Truth(message){
 }
 function Tell_Me_A_Half_Truth_2(){
 	
-	N("And exchanged tips!");
-	N("Like... do a 'come hither' motion with your fingers, or, rub the head against the roof of your mouth.");
-	p("T.M.I, dude...");
+	N("ついでにテクも教え合ったんだ!");
+	N("例えば... 指で相手を誘う仕草とか、上あごのところで相手のを上手に刺激する方法とか。");
+	p("そこまで細かいこと言えとは言ってないだろ...");
 
 	if($.changing_schools || !$.father_oblivious){
-		N("I did move to her school, in the end.");
+		N("最終的に、僕は彼女の学校へ転校した。");
 	}
 
-	N("We were best friends. We still are! We've now both moved to the US, far away from our hateful families.");
-	N("Together, we helped each other overcome our insecurities, and discover who we were...");
-	N("Proud bisexual sluts.");
+	N("僕らはいい友達だった。今でもね! 僕も彼女も、忌しき自分の家族から離れて、アメリカへとやって来た。");
+	N("僕らは一緒に、それまで抱えてきた不安を克服して、自分自身を取り戻したんだ...");
+	N("僕らは誇り高きバイのビッチどもだ。");
 
-	p("What a touching story. I think.");
+	p("いい話じゃないか。本当に。");
 	
-	N("And of course, we wingman/wingwoman for each other.");
+	N("お互いに頼りになる同志だったよ。外で男や女をオトすのをお互いに手伝ったりね。");
 
 	p(". . .");
 
@@ -390,7 +390,7 @@ function Tell_Me_A_Half_Truth_2(){
 
 function Finale_1(){
 	
-	N("And that's the last of the post-coming-out stories!");
+	N("さて、これでカミングアウト後の物語はこれで終わりだ。");
 
 	// HACK - Just clear dialogue & stuff.
 	Wait(1000);
@@ -405,36 +405,36 @@ function Finale_1(){
 
 	//////////////////////////
 
-	N("Dear player, I couldn't help but notice...");
+	N("プレイヤー君、どうしても聞いておきたいんだけど...");
 	if($.order_of_stories[0]=="truth"){
-		N("You went straight for the Truth first.");
+		N("君は真っ先に「真実」の物語を選んだね。");
 	}else if($.order_of_stories[2]=="truth"){
-		N("You saved the Truth for last.");
+		N("君は「真実」の話を最後までとっておいた。");
 	}else if($.order_of_stories[0]=="lie"){
-		N("You wanted to hear the Lie first.");
+		N("君は最初に「嘘」の話を聞きたがった。");
 	}else{
-		N("You saved the Lie for last.");
+		N("君は「嘘」の話を最後までとっておいた。");
 	}
-	N("What does that say about you?...");
+	N("その選択は君の性格をどう表わしていると思う?...");
 	p(". . .");
 
-	p("You know... usually when a game gives you multiple endings, they don't do them ALL AT ONCE.");
-	N("Hah! You thought these were ENDINGS?");
+	p("あの... 普通のゲームは、マルチエンディングだとして、それを一度にぜんぶ見せる、なんてことはしないよな。");
+	N("へぇ! 君はこれが「エンディング」だと思ってたの?");
 
 	Choose({
-		"Let me guess... This Is Just The Beginning?": function(message){
+		"それって... これはただの始まりだ、ってこと?": function(message){
 			p(message);
-			N("This is just the begi-- oh. Okay, yeah.");
+			N("これはただの始まり—ああ、うん、そうだね。");
 			Finale_2();
 		},
-		"Well yeah. This game's over, right?": function(message){
+		"ああ、これはゲームオーバーか。だろ?": function(message){
 			p(message);
-			N("True... but the story, which is my story, my life, continues.");
+			N("まあね... でも物語は、つまり僕の物語、僕の人生は、まだ続くけどね。");
 			Finale_2();
 		},
-		"oh god how long IS this damn game.": function(message){
+		"ふざけんな、このゲームまだ続くのかよ。": function(message){
 			p(message);
-			N("Don't worry. Your next choice is the very last one, I swear.");
+			N("大丈夫。次の選択肢が、本当に最後のだ。約束するよ。");
 			Finale_2();
 		}
 	});
@@ -446,9 +446,9 @@ function Finale_2(){
 	Show("nicky","coffee_nicky_packup_1");
 
 	N(". . .");
-	N("You know, if I could go back and relive all my other possible choices...");
-	N("... which in a sense, I did, by writing this game...");
-	N("... I wouldn't change a thing.");
+	N("あのさ。もし過去に戻って他の人生を選び直せるとしたら...");
+	N("... ある意味、このゲームを作ったことでそれに近いことをやっているんだけど...");
+	N("... それでも何一つ変えないだろうね。");
 
 	Show("nicky","coffee_nicky_packup_2");
 
@@ -459,21 +459,21 @@ function Finale_2(){
 	p("? ? ?");
 
 	if($.punched){
-		N("My texts getting read. Being forced to change schools. Getting punched in the face.");
+		N("僕のメールは読まれた。転校もさせられた。顔も殴られた。");
 	}else if($.father_oblivious==false){
-		N("My texts getting read. Being forced to change schools. All the verbal abuse.");
+		N("僕のメールは読まれた。転校もさせられた。山ほどの言葉の暴力。");
 	}else if($.changing_schools){
-		N("My texts getting read. Being forced to change schools. The attempted 'gay rehab' with Claire.");	
+		N("僕のメールは読まれた。転校もさせられた。クレア相手に「ゲイリハビリ」をさせられそうになった。");	
 	}else{
-		N("My texts getting read. No more after-school hours to myself. The attempted 'gay rehab' with Claire.");
+		N("僕のメールは読まれた。学校から帰った後の自由は失われた。クレア相手に「ゲイリハビリ」をさせられそうになった。");
 	}
 
-	N("In a Stockholm Syndrome sort of sense... I'm grateful for it all.");
+	N("ストックホルム症候群かって感じだけど... そのすべてに僕は感謝してる。");
 
 	Choose({
-		"what.": Finale_3,
-		"whaaat.": Finale_3,
-		"whaaaaaaaaaaaaaaat.": Finale_3
+		"えっ?": Finale_3,
+		"ええっ?": Finale_3,
+		"えええええええええっ?": Finale_3
 	});
 
 }
@@ -485,28 +485,27 @@ function Finale_3(message){
 	PlaySound("sfx","laptop_pack");
 	Show("nicky","coffee_nicky_packup_3");
 
-	N("Yes, really!");
-	N("I wouldn't have been so motivated to forge my own life... if my previous life wasn't total utter shit.");
+	N("ああ、本当さ!");
+	N("もし僕のそれまでの人生があんな糞みたいなものじゃなかったら... 僕は自分の人生を自分の力で築き上げることに、ここまで積極的にはなれなかったと思う。");
 
 	PlaySound("sfx","laptop_pack_2");
 	Show("nicky","coffee_nicky_packup_4");
 
-	N("Later in 2010, Dan Savage launched the It Gets Better&trade; campaign.");
-	N("My three stories... Lie, Truth, Half-Truth... they're all at least true about one thing.");
-	N("It does get better.");
+	N("あの後、2010年に Dan Savage は、若い同性愛者へ応援メッセージを送る、「きっとよくなる (It Gets Better&trade;)」というキャンペーンを始めた。");
+	N("僕の三つの物語...嘘、 真実、 半分の真実... そのどれもが、少なくとも一つの点については、真実を物語っている。");
+	N("まさしく、人生はよくなるんだ。");
 
 	p(". . .");
 
-	N("And...");
-	N("At the end...");
-	N("Of this long, stupid, painful game...");
-	N("Where I played against people who should have been on my side...");
+	N("そして...");
+	N("この長い、愚かで、痛ましいゲームの最後で...");
+	N("味方だと思っていた連中を相手に回して..");
 
 	p(". . .");
 
-	N("I won.");
+	N("僕は勝った。");
 	N(". . .");
-	N("I won.");
+	N("僕は勝った。");
 
 	// HACK - Just clear dialogue & stuff.
 	Wait(1000);

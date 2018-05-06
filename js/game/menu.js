@@ -13,17 +13,17 @@ function Start(){
 	//////////////////////////////
 
 	N("<b>COMING OUT SIMULATOR</b>");
-	N("A half-true story about half-truths.");
-	N("Hey there, player. Glad to have you for the next 20 minutes, I guess.");
-	N("What would you like to do now?");
+	N("「半分の真実」についての、半分本当の物語。");
+	N("やあプレイヤー君、このゲームへようこそ。ざっと20分くらいかな、お付き合いいただくよ。");
+	N("さて、まずはなにをしたい?");
 
 	Choose({
-		"Let's play this thing!": Play,
-		"Who are you? (About Me)": function(){
-			Credits("Who are you?");
+		"さっそくプレイしよう!": Play,
+		"君は誰? (作者紹介)": function(){
+			Credits("君は誰?");
 		},
-		"Hm, tell me more. (About This Game)": function(){
-			About("Hm, tell me more.");
+		"もうちょい詳しく。(このゲームについて)": function(){
+			About("もうちょい詳しく。");
 		}
 	});
 
@@ -44,56 +44,56 @@ function Play(message){
 
 	// Asked neither
 	if(!$.asked_about && !$.asked_credits){
-		N("Jumping right into it! Great!");
-		N("No messing around with reading the About Me or the About This Game sections or--");
-		p("Shush.");
-		N("Fine, fine.");
+		N("気が早いね!その調子!");
+		N("「作者紹介」なんか読んで時間を無駄にしたくないと。他にも「このゲームについて」とか...");
+		p("いいから。");
+		N("わかったわかった。");
 	}
 	// Asked both
 	if($.asked_about && $.asked_credits){
 		p(". . .");
-		p("Why did you make that a clickable option, when it was the only option left.");
-		N("NO IDEA");
+		p("これしか選択肢が残ってないのに、なんでわざわざクリックさせたの?");
+		N("さあてね。");
 	// Asked either
 	}else if($.asked_about || $.asked_credits){
-		N("Yes, let's!");
+		N("よし、始めよう!");
 	}
 
-	N("Let's travel back five years ago, to 2010...");
-	p("That was FIVE years ago?!");
-	N("...to the evening that changed my life forever.");
+	N("あれは今から四年前、2010年のことだった...");
+	p("四年前だって?!");
+	N("...その日の晩に、僕の人生は永遠に変わってしまった。");
 
-	N("Tell me, dear player, how do you think this all ends?");
+	N("さてプレイヤー君、この物語はどんな風に終わると思う?");
 
 	Choose({
-		"With flowers and rainbows and gay unicorns?": function(message){
+		"ゲイらしく、お花と虹とユニコーンがいっぱい?": function(message){
 			$.main_menu_convo_1 = 1;
 
 			p(message);
-			N("Yes. That is exactly how this game ends.");
-			p("Really?");
-			N("No.");
+			N("よくわかったね。その通り、このゲームのエンディングはそんな感じだ。");
+			p("マジ?");
+			N("嘘。");
 			Play_2();
 		},
-		"Apparently, with you redditing at Starbucks.": function(message){
+		"今みたいに、スタバでネットだろ。": function(message){
 			$.main_menu_convo_1 = 2;
 
 			p(message);
-			N("Hey, I'm coding on this laptop. Turning my coming-of-age story into the game you're playing right now.");
-			p("Naw, you're probably procrastinating.");
-			N("Look who's talking.");
-			p("Touché, douché.");
-			N("Anyway...");
+			N("ちょ、僕は今プログラム書いてるんだよ。かつて僕の身に起きた出来事を、こうやって君がいまプレイしているゲームとして作り変えているんだ。");
+			p("へー、サボってるようにしか見えないけど。");
+			N("お互い様だろ。");
+			p("へいへい。");
+			N("とにかく...");
 			Play_2();
 		},
-		"IT ALL ENDS IN BLOOD": function(message){
+		"流血沙汰の大惨事!": function(message){
 			$.main_menu_convo_1 = 3;
 
 			p(message);
-			N("Uh, compared to that, I guess my story isn't that tragic.");
-			N("Although that's kind of a glass one-hundredths-full interpretation.");
-			p("blooooood.");
-			N("Anyway...");
+			N("ハハッ、それに比べりゃこの物語はそこまで悲劇的じゃないってことになるかな。");
+			N("もちろん、せいいっぱいに楽観的に考えて、ってことだけど。");
+			p("血ィがー血ィがー");
+			N("とにかく...");
 			Play_2();
 		}
 	});
@@ -103,37 +103,37 @@ function Play(message){
 function Play_2(){
 
 	if(!$.asked_about){
-		N("If you didn't skip the About This Game section, you'd know this is a very personal story.");
-		p("Shush.");
+		N("君が「このゲームについて」を選んでいてくれたら、このゲームがとても個人的な物語を扱ったものだと、わかってもらえたんだけどね。");
+		p("チッ。");
 	}
 
-	N("This game includes dialogue that I, my parents, and my ex-boyfriend actually said.");
-	N("As well as all the things we could have, should have, and never would have said.");
-	N("It doesn't matter which is which.");
-	N("Not anymore.");
+	N("このゲームには、僕が両親や元カレと交わした会話を再現したものが含まれている。");
+	N("もちろん、こう言えば良かった、ああ言うべきだった、そして絶対に言うべきでなかった言葉も、ゲームには入れてある。");
+	N("どの言葉がそのどれにあてはまるかは、どうでもいい。");
+	N("今となってはね。");
 
 	Choose({
-		"How can I win a game with no right answers?": function(message){
+		"正解がどれか分からないのにうまく行くの?": function(message){
 			$.main_menu_convo_2 = 2;
 
 			p(message);
-			N("Exactly.");
+			N("僕もそうだった。");
 			p(". . .");
 			Play_3();
 		},
-		"You're a bit of a downer, aren't you?": function(message){
+		"お前、ちょっとダウナー系だよな?": function(message){
 			$.main_menu_convo_2 = 1;
 
 			p(message);
-			N("LIFE is a bit of a downer.");
-			p("So that's a yes.");
+			N("人生だってそこそこダウナー系だよ。");
+			p("ほら、やっぱりダウナー系だよお前は。");
 			Play_3();
 		},
-		"This 'true' game is full of lies?": function(message){
+		"「真実についてのゲーム」にしちゃ嘘だらけだな。": function(message){
 			$.main_menu_convo_2 = 3;
 
 			p(message);
-			N("Even if the dialogue was 100% accurate, it'd still be 100% lies.");
+			N("すべての言葉が100%正しく再現されていたとしても、結局は嘘であることに変わりはないさ。");
 			p(". . .");
 			Play_3();
 		}
@@ -143,22 +143,22 @@ function Play_2(){
 
 function Play_3(){
 
-	N("You'll be playing as me, circa 2010.");
+	N("君にはこれから、2010年頃の僕になってもらう。");
 	if(!$.asked_credits){
-		N("Because you skipped the About Me, my (not-yet-legal) name is Nicky Case. Just so you know.");
-		p("Shush.");
+		N("君が「作者紹介」をとばしたから、あらためて伝えよう。僕の（まだ法的には有効じゃない）名前はニッキー・ケース。これで覚えてもらえたかな。");
+		p("チッ。");
 	}
 
 	var whatISay;
 	switch($.main_menu_convo_1){
-		case 1: whatISay = "This game doesn't end with gay unicorns. "; break;
-		case 2: whatISay = "This game is a coming-out, a coming-of-age, a coming-to-terms. "; break;
-		case 3: whatISay = "This game ends not in blood, but in tears. "; break;
+		case 1: whatISay = "このゲームはゲイのユニコーンなんかで終わりはしない。"; break;
+		case 2: whatISay = "このゲームはカミングアウト、大人になること、そして人生に折り合いをつけること、について語っている。"; break;
+		case 3: whatISay = "このゲームは流血沙汰で終わったりはしない。涙は流れるだろうけど。"; break;
 	}
 	switch($.main_menu_convo_2){
-		case 1: whatISay += "Sorry for being a bit of a downer."; break;
-		case 2: whatISay += "And there are no right answers."; break;
-		case 3: whatISay += "And it's full of lies."; break;
+		case 1: whatISay += "悪いけどダウナー系のゲームだ。"; break;
+		case 2: whatISay += "そして、正解がどれかを選ぶことが求められている訳でもない。"; break;
+		case 3: whatISay += "そして実のところ、嘘についてのゲームでもある。"; break;
 	}
 	N(whatISay);
 
@@ -166,7 +166,7 @@ function Play_3(){
 	Show("nicky","coffee_nicky_drink");
 	Show("cup",null);
 
-	p("Hey, I just said that!");
+	p("あ、それ俺が言ったヤツだ。");
 
 	// HACK - Just clear dialogue & stuff.
 	Wait(1000);
@@ -180,14 +180,14 @@ function Play_3(){
 	Show("nicky","coffee_nicky_still_2");
 	Wait(500);
 	
-	N("When you play...");
-	N("Choose your words wisely.");
-	N("Every character will remember everything you say. Or don't say.");
-	p("Yeah. You even brought up my choices in this MAIN MENU.");
-	N("Exactly.");
+	N("忠告しておくけど...");
+	N("言葉を慎重に選んでくれ。");
+	N("他のキャラクター達はみんな、君が言ったことをぜんぶ覚えている。言わなかったこともね。");
+	p("知ってるよ。まだゲームが始まってもいないのに、俺が言ったことを根にもって持ち出してきたもんな。");
+	N("その通り。");
 
 	N(". . .");
-	N("Some things are hard not to remember.");
+	N("忘れたくても忘れられないことってあるだろう。");
 	
 	Clear();
 	Start_Jack_1();
@@ -201,44 +201,44 @@ function Credits(message){
 	if($.asked_about){
 		SipCoffee(message);
 	}else{
-		SipCoffee("Who are you?");
+		SipCoffee("君は誰?");
 	}
 	
-	N("Ah, how rude of me! Let me introduce myself.");
-	N("Hi, I'm Nicky Case.");
-	N("That's not my legal name, it's just my REAL name.");
+	N("おっとこりゃ失礼。それでは自己紹介しよう。");
+	N("僕の名前はニッキー・ケース。");
+	N("法律上の名前はそうじゃないんだけど、これは僕の本当の名前だ。");
 
-	p("That's totes weird, dude.");
+	p("ねえ、ぜんぜん意味わかんないんだけど。");
 	if($.asked_about){
-		p("And like you just told me, this is your personal story?");
+		p("それで、さっき君が言ったように、これは君自身の物語なの?");
 	}else{
-		p("And you made this game?");
+		p("それで、このゲームは君が作ったの?");
 	}
 
-	N("Yep, I am the sole writer / programmer / artist of Coming Out Simulator.");
+	N("そう。この僕が「Coming Out Simulator」の作者でありプログラマーだ。");
 
 	if($.asked_about){
-		p("All of this yourself?");
-		p("I said it before and I'll say it again...");
-		p("Of course. You narcissist.");
-		N("Well it's not ALL me.");
-		N("The sounds & audio are from various public domain sources.");
+		p("ぜんぶ自分で??");
+		p("前にも言ったけど、君さぁ...");
+		p("かなりのナルシストだよ。");
+		N("あ、本当にぜんぶを自分でって訳じゃないんだ。");
+		N("効果音はいろんな無料素材を使っている。");
 	}else{
-		N("The sounds & audio, though, are from various public domain sources.");
+		N("もっとも効果音はいろんな無料素材を使っている。");
 	}
 
-	N("But although it's mostly just me behind this game...");
-	N("...there's a lot of people behind this game's story.");
+	N("それはさておき、たしかに僕はこのゲームに出ずっぱりだけど...");
+	N("...このゲームのストーリー自体は、沢山の人が関わるものでもあるんだ。");
 
 	if($.asked_about){
 		Choose({
-			"Speaking of which, let's play that! Now!": Play
+			"よしわかった、さっさとプレイしよう! いますぐ!": Play
 		});
 	}else{
 		Choose({
-			"Speaking of that, can we play it now?": Play,
-			"Why'd you make this? (About This Game)": function(){
-				About("Why'd you make this?");
+			"よくわかったから、プレイしてもいい?": Play,
+			"なぜこれを作ったの? (このゲームについて)": function(){
+				About("なぜこのゲームを作ったの?");
 			}
 		});
 	}
@@ -252,41 +252,41 @@ function About(message){
 	SipCoffee(message);
 
 	if($.asked_credits){
-		N("I wanted to tell my story.");
+		N("僕は僕の物語を伝えたかったんだ。");
 	}else{
-		N("This game...");
-		N("...more like a conversation simulator, really...");
-		N("...is a very personal story.");
+		N("このゲームは...");
+		N("...会話シミュレーターみたいなものだけど、実のところは...");
+		N("...とても個人的な物語なんだ。");
 	}
 	
-	p("Of course. You narcissist.");
-	N("Ha, of course.");
+	p("なるほど。ナルシストっぽいな。");
+	N("ふん、そうかもね。");
 
 	if($.asked_credits){
-		p("Actually no, a narcissist would use their real name.");
-		N("I told you, it IS my real na--");
-		p("Aight, aight. Weirdo.");
+		p("違うか。ナルシストってのは本名を出したがるもんだし。");
+		N("さっきのは本当の名前だって—");
+		p("はいはい、わかったよナルちゃん。");
 	}
 
-	N("I made this game for the #Nar8 Game Jam. Gave me an excuse. And a deadline!");
-	p("You procrastinated until the last day to enter, didn't you.");
-	N("Yes.");
-	N("Also! This game is uncopyrighted. Dedicated to the public domain.");
-	N("I'm as open with my source code as I am with my sexuality.");
+	N("このゲームは Nar8 Game Jam っていう大会用に作ったんだ。大会があると作ろうって気になるだろ? 締切もあるし。");
+	p("どうせ最終日まで手をつけずにぼんやりしてたんだろ。");
+	N("そうだよ。");
+	N("ともかく、このゲームは著作権を放棄している。パブリックドメインなんだ。");
+	N("僕は自分のセクシャリティもオープンにしてるくらいだから、ソースコードもオープンなのさ。");
 
-	p("Ugh, that's a terrible pun.");
-	N("Howzabout a 'Fork Me' programming pun?");
-	p("noooooo.");
+	p("それ、うまいこと言ったつもり?");
+	N("「僕のこと開発してみない?」っていうプログラマージョーク、どう?");
+	p("やめとけ。");
 
 	if($.asked_credits){
 		Choose({
-			"Let's just play this game already.": Play
+			"いいからさっさとゲームを始めようぜ。": Play
 		});
 	}else{
 		Choose({
-			"Bad puns aside, can we play now?": Play,
-			"So who ARE you? (About Me)": function(){
-				Credits("So who ARE you?");
+			"冗談はおいといて、もうプレイできる?": Play,
+			"で、君は誰なんだい? (作者紹介)": function(){
+				Credits("で、君は誰なんだい?");
 			}
 		});
 	}

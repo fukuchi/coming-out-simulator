@@ -24,33 +24,33 @@ function Start_Jack_2(){
 
 	/////////////////////////////
 
-	n("Hey Jack.");
+	n("やあジャック。");
 	if($.sadsack){
-		j("Hello, Nicky darling. Still a sad sack of sadness?");
+		j("やあニッキー。まだどうしようもなく悲観的な気分かい?");
 	}else{
-		j("Hello, Nicky darling.");
+		j("やあニッキー。");
 	}
-	j("How was coming out to your parents? Did I tell you so, or did I tell you so?");
+	j("親へのカミングアウトはどうだった? うまくいったろ?");
 
 	Choose({
-		"Jack... we messed up big time, Jack.": function(message){
+		"メチャメチャだよ、ジャック...": function(message){
 			n(message);
-			j("No... no, no.");
-			j("You're kidding me, right? What happened?");
+			j("そんな... 嘘だろ。");
+			j("なぁ、冗談だろ? 何があった?");
 			What_Happened();
 		},
-		"Things could have been worse.": function(message){
+		"「最悪」ってほどではなかったよ。": function(message){
 			n(message);
-			j("Oh. Oh no.");
-			j("I didn't expect that they'd... what... what happened?");
+			j("えっ、まさか。");
+			j("うまく行くと思ったんだよ... 何が... 何があったの?");
 			What_Happened();
 		},
-		"Shut up, Jack.": function(message){
+		"黙っててくれ、ジャック。": function(message){
 			n(message);
-			j("Ha, yes, I knew I was right!");
-			n("No. Jack, we can't see each other ever again.");
-			j("Wait.");
-			j("No, no, no. You're kidding me, right? What happened?");
+			j("な、うまく行くと思ってたよ!");
+			n("違うんだ。ジャック、君とはもう逢えなくなる。");
+			j("ちょっと待て。");
+			j("おいおい、嘘だろ? 何があった?");
 			What_Happened();
 		}
 	});
@@ -61,29 +61,29 @@ function What_Happened(){
 
 	if($.punched){
 		Choose({
-			"My dad punched me in the face.": What_Happened_Abuse,
-			"They're making me change schools.": What_Happened_School,
-			"They read all our texts.": What_Happened_Texts
+			"親父に顔をぶん殴られた。": What_Happened_Abuse,
+			"親に転校させられることになった。": What_Happened_School,
+			"僕らのメールを全部見られた。": What_Happened_Texts
 		});
 	}else if($.father_oblivious==false){
 		Choose({
-			"My parents got verbally violent with each other.": What_Happened_Abuse,
-			"They're making me change schools.": What_Happened_School,
-			"They read all our texts.": What_Happened_Texts
+			"二人とも僕を口汚く罵った。": What_Happened_Abuse,
+			"転校しろって言われた。": What_Happened_School,
+			"僕らのメールを全部見られた。": What_Happened_Texts
 		});
 	}else{
-		n("Well, my dad's oblivious. For now. But my mom...");
+		n("ああ、親父は忘れっぽいし、しばらくは平気だろう。だけど母さんは...");
 		if($.changing_schools){
 			Choose({
-				"She's making me change schools.": What_Happened_School,
-				"She's setting me up with a girl I've never met.": What_Happened_Girl,
-				"She read all our texts.": What_Happened_Texts,
+				"僕を転校させようとしてる。": What_Happened_School,
+				"知らない女の子と僕を会わせようとしてる。": What_Happened_Girl,
+				"僕らのメールを全部読んだ。": What_Happened_Texts,
 			});
 		}else{
 			Choose({
-				"She got a tutor to kill all my after-school hours.": What_Happened_School,
-				"She's setting me up with a girl I've never met.": What_Happened_Girl,
-				"She read all our texts.": What_Happened_Texts,
+				"家庭教師を僕につけて放課後を潰すつもりだ。": What_Happened_School,
+				"知らない女の子と僕を会わせようとしてる。": What_Happened_Girl,
+				"僕らのメールを全部読んだ。": What_Happened_Texts,
 			});
 		}
 	}
@@ -94,11 +94,11 @@ function What_Happened_Abuse(message){
 	$.told_jack = "abuse";
 
 	n(message);
-	j("Oh my god!");
-	j("Nicky, you need to call Child Protective Services.");
-	n("What?! No. That's way too much.");
-	j("Just... okay, but at least promise me you'll visit the school counselor tomorrow?");
-	n("Fine.");
+	j("なんだって!");
+	j("ニッキー、すぐに児童保護サービスに連絡するんだ。");
+	n("はぁ?! いいよ、そこまでのことじゃないよ。");
+	j("だっ... ならいいけど、せめて明日スクールカウンセラーに行くんだ。いいね?");
+	n("ああ。");
 	j(". . .");
 	What_Happened_2();
 }
@@ -106,74 +106,74 @@ function What_Happened_School(message){
 	$.told_jack = "school";
 
 	n(message);
-	j("No!");
-	j("Why?! Why are they doing that?");
-	n("Because 'Jack and the school is a bad influence on me', or something. They just want to break us up.");
-	j("That's horrible...");
+	j("そんな!");
+	j("なぜ?! なんでそんなことを?");
+	n("それは、ジャックや今の学校は僕に悪い影響を与える、とかそんなところさ。僕らを離したがっているんだ。");
+	j("そんな、嘘だろ...");
 	What_Happened_2();
 }
 function What_Happened_Girl(message){
 	$.told_jack = "girl";
 
 	n(message);
-	j("Ew, seriously?");
-	n("Her name's Claire Something. She'll also be tutoring me.");
-	j("Ew squared, they're also hooking you up with your own tutor?");
-	n("Yup."); 
+	j("げ、マジか?");
+	n("クレアとかいう名前の子だよ。家庭教師もやるってさ。");
+	j("うげ、マジメかよ。で、親はその子とお前をくっつけようとしてるってことか?");
+	n("そういうこと。"); 
 	What_Happened_2();
 }
 function What_Happened_Texts(message){
 	$.told_jack = "texts";
 
 	n(message);
-	j("That is just plain rude!");
-	j("Wait, what will you do with these texts right now, then?");
-	n("I can hide them better. My parents aren't exactly a tech-savvy bunch.");
-	j("...just plain rude.");
+	j("そんな横暴な!");
+	j("ちょっと待って、じゃあいま書いてるこのメールはどうすればいい?");
+	n("なんとか隠せると思う。うちの親は新技術には疎いから。");
+	j("...こんなの横暴だよ。");
 	What_Happened_2();
 }
 
 function What_Happened_2(){
 	
-	n("And that's just one out of three crappy things that happened.");
-	j("Nicky...");
-	j("I am truly, truly apologetic.");
-	j("This is my fault. I urged you to come out to your parents. Stupid me.");
+	n("で、いまのは今日起きたクソみたいな三つの出来事の、一つ目だよ。");
+	j("ニッキー...");
+	j("本当に、本当にごめん。");
+	j("カミングアウトなんかさせるんじゃなかった。僕がバカだったよ。");
 
 	Choose({
-		"Yeah, stupid you.": function(message){
+		"そうだね、バカだった。": function(message){
 			$.blame = "jack";
 
 			n(message);
-			n("If you hadn't been all so 'ohhhh Nicky coming out is good for the soul' and shit, this never would have...");
+			n("もし君が「おおニッキー、カミングアウトして君の魂を解放するんだ」とか言わなきゃ、こんなことには...");
 			j(". . .");
-			n("I'm sorry. You're the only person I can lash out on.");
-			n("Isn't that just fucked up?");
+			n("ごめん。こんな事言えるの、君くらいなんだ。");
+			n("もうどうすればいいのか分からないんだよ。");
 			What_Now();
 		},
-		"No, it's THEIR fault.": function(message){
+		"違うさ、悪いのはうちの親だ。": function(message){
 			$.blame = "parents";
 
 			n(message);
-			n("They already read our texts. Anything I would have said after that couldn't change what happened.");
+			n("奴らは僕らのメールを読んだ。もう僕が何を言ったところで何も変わらないよ。");
 			if($.told_jack!="texts"){
-				j("What! You didn't tell me they also read your texts!");
+				j("えっ! 君の親はメールまで読んだのか?!");
 			}else{
-				j("And they're stuck in their old-fashioned moralities, the poor things.");
-				n("I wouldn't go so far as to pity them.");
+				j("古い考え方に縛られ続けているってことか。悲しいね。");
+				n("同情する気にはなれないな。");
 			}
 			What_Now();
 		},
-		"No, this is all my fault.": function(message){
+		"いや、ぜんぶ僕が悪いんだ。": function(message){
 			$.blame = "nicky";
 
 			n(message);
-			n("I should have passcode-locked my phone, or use encrypted text, or hid it better...");
+			n("僕の電話をパスコードロックしておくべきだったんだ。それかメールを暗号化しておくか、もっとうまく隠しておけば...");
 			if($.told_jack!="texts"){
-				j("They read your texts, too?...");
+				j("メールも読まれたって?...");
 			}
-			j("Nicky, you had every right to trust them, they're your parents. They abused that trust. It's not your fault.");
-			n("Yeah...");
+			j("ニッキー、君が自分の親を信用していたのは当然だ。親なんだから。君の両親こそが、君を裏切ったんだ。君のせいじゃない。");
+			n("うん...");
 			What_Now();
 		}
 	});
@@ -184,47 +184,47 @@ function What_Now(){
 
 	j(". . .");
 
-	n("You know... talking with my parents, it's like...");
-	n("That mode of communication?");
-	n("It's imprecise, impersonal, impossible to truly connect.");
+	n("わかるだろ... うちの親と話すのは, なんていうか...");
+	n("あれがコミュニケーションか?");
+	n("不明瞭で、不毛で、不可解で。話し合いになんかなるもんか。");
 
 	j(". . .");
-	j("What now?");
+	j("それでどうする?");
 
 	Choose({
-		"I'm going to sabotage my parents' plans.": function(message){
+		"親が決めたことは無視するよ。": function(message){
 			n(message);
 
 			if($.told_jack=="texts"){
-				n("I'll set up a new email and virtual phone number to talk with you.");
-				n("This way they can't spy on our communications anymore.");
+				n("メールアドレスは変えて、電話するときも転送用の番号にかけるよ。");
+				n("そうすればもう僕らの会話をスパイすることもできなくなる。");
 			}else if($.told_jack=="girl"){
-				n("I'll tell Claire everything. With any luck, she'll help me fight back.");
+				n("クレアにはぜんぶ伝えるよ。もしかしたら、僕らのことを助けてくれるかもしれないし。");
 			}else{
-				n("I'll figure out a way, somehow...");
+				n("とにかく、なんとかするさ...");
 			}
 
 			What_Now_2();
 		},
-		"I'll visit the school counselor tomorrow.": function(message){
-			n(message);
+		"スクールカウンセラーのところに行くよ。": function(message){
+			n("明日、スクールカウンセラーのところへ行くよ。");
 
 			if($.told_jack=="abuse"){
-				n("Like I promised. Like you made me promise.");
+				n("約束したしね。君に言われて。");
 			}else if($.told_jack=="school"){
-				n("My current school, that is. I don't know how soon they'll be transferring me.");
+				n("今いる学校の、ね。いつ転校させられるのか、まだわからないし。");
 			}else{
-				n("At least they'll be someone else I can lash out on.");
+				n("それか、誰かこのことを言えそうなところに。");
 			}
 
 			What_Now_2();
 		},
-		"I'm getting out of this house.": function(message){
+		"家を出るつもりだ。": function(message){
 			n(message);
 
-			n("Not running away, I mean. Although if I did I could crash at your place.");
-			n("But anyway. I'm going to try to get an internship or scholarship in the US.");
-			n("And get far, far away from these people.");
+			n("逃げ出す、って訳じゃないよ。君のところに逃げ込むこともできるかもしれないけど。");
+			n("そうじゃなくて、アメリカに行って、インターンシップか、奨学金でも狙おうかと思ってるんだ。");
+			n("とにかく連中から遠いところに行きたいんだ。");
 			What_Now_2();
 		}
 	});
@@ -233,35 +233,35 @@ function What_Now(){
 
 function What_Now_2(){
 
-	j("No, I mean... what now, between us?");
-	n("Jack...");
-	j("What do we do? What... What happens?");
+	j("そうじゃなくて、僕らはどうなる?");
+	n("ジャック...");
+	j("これからどうする? どうなる?");
 	n(". . .");
 
 	Choose({
-		"We have to break up.": function(message){
+		"別れよう。": function(message){
 			$.breaking_up_soon = true;
 
 			n(message);
 
-			j("No, no no...");
-			n("I can't do this to you, Jack. I can't pull you down with me.");
-			j("At least, don't type 'we can still be friends'.");
-			n("we can still be frie");
+			j("おい、嘘だろ、考え直そう...");
+			n("君のためなんだ。こんなことに君を巻き込みたくないんだよ。");
+			j("せめて、「ずっと友達でいよう」なんて書かないでくれ。");
+			n("ずっと友達でい");
 			n(". . .");
-			j("Because, of course we're friends. Of course we are.");
+			j("だって、そうだろう。友達なのは当然じゃないか。当たり前だろ。");
 			n(". . .");
 			What_Now_3();
 		},
-		"We stick together as long as we can.": function(message){
-			n(message);
+		"ずっと一緒にいよう。": function(message){
+			n("ずっと一緒にいよう。できる限り。");
 
 			j(". . .");
-			j("As long as we can.");
+			j("僕らにできる限り、ずっと。");
 			n(". . .");
 			What_Now_3();
 		},
-		"I don't know.": function(message){
+		"わからない。": function(message){
 			$.breaking_up_soon = true;
 
 			n(message);
@@ -275,20 +275,20 @@ function What_Now_2(){
 
 function What_Now_3(){
 
-	n("It's late.");
-	n("There's a lot I need to sleep on, now.");
-	j("Okay.");
+	n("夜も遅い。");
+	n("もう寝るよ。今日はたっぷり寝たいんだ。");
+	j("わかった。");
 	j(". . .");
-	j("I love you, Nicky.");
-	n("I love you too, Jack.");
+	j("ニッキー、愛してるよ。");
+	n("僕も愛しているよ、ジャック。");
 	
 	var insult = "";
-	if($.hippies) insult+=" new-age hippie";
-	if($.im_a_poet) insult+=" amateur poet";
+	if($.hippies) insult+="ニューエイジヒッピー";
+	if($.im_a_poet) insult+="詩人";
 	if(insult!=""){
-		n("You"+insult+".");
+		n(insult+"さん。");
 	}else{
-		n("You goof.");
+		n("お馬鹿さん。");
 	}
 
 	The_Game_Ends();
