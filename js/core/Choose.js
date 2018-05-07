@@ -55,7 +55,7 @@ var TIMER_GAP = 100;
 function getDuration(message){
 	// Approx 6 words per second, or 160ms per word. Plus 800ms just in case.
 	// Adjusted for Japanese text.
-	return 850 + message.length*55;
+	return 1000 + message.length*55;
 }
 
 var _queue = [];
