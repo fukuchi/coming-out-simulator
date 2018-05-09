@@ -207,7 +207,7 @@ function Getting_A_Tutor(){
 	Choose({
 		"はぁ? んなワケないだろ!": function(message){
 			n(message);
-			f("あら、そんな照れなくても。");
+			f("おいおい、そんなに照れるなよ。");
 			Getting_A_Tutor_2();
 		},
 		"くそ、わかったよ。そういうことさ。": function(message){
@@ -217,7 +217,7 @@ function Getting_A_Tutor(){
 		"僕には彼氏がいるんだ。": function(message){
 			n(message);
 			f("そうか、我が息子よ! お前もいよいよ「彼氏」になるんだな!");
-			n("僕に彼氏<strong>が</strong>いるんだって。<strong>僕に</strong>—");
+			n("僕<strong>に</strong>、彼氏<strong>が</strong>、いるんだってば。ちゃんと—");
 			Getting_A_Tutor_2();
 		}
 	});
